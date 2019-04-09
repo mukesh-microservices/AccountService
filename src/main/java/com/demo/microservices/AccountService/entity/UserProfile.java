@@ -1,11 +1,16 @@
 package com.demo.microservices.AccountService.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -29,7 +34,12 @@ public class UserProfile {
 
 	@Column(name = "PASSWORD", nullable = true, length = 255)
 	private String password;
-
+	
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "REGISTRATION_DATE")
+	private Date registrationDate;
+	
 	public String getLastName() {
 		return lastName;
 	}
