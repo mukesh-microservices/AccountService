@@ -28,6 +28,16 @@ public class ProfileController {
 		System.out.println("profileprofileprofileprofile -- " + profile);
 		return profile;
 	}
+	
+	@GetMapping("/userProfile/allUsers")
+	public Iterable<UserProfile> getAllAccountDetails() {
+
+		Iterable<UserProfile> profiles = profileSevice.getAllUsers();
+
+		System.out.println("profileprofileprofileprofile -- " + profiles);
+		return profiles;
+	}
+	
 
 	@PostMapping("/userProfile/register")
 	public boolean registerUser(HttpServletRequest httpRequest, HttpServletResponse httpResponse,

@@ -20,6 +20,10 @@ public class ProfileSevice {
 	public UserProfile getUser(String userId) {
 		return profileRepository.findById(userId).get();
 	}
+	
+	public Iterable<UserProfile> getAllUsers() {
+		return profileRepository.findAll();
+	}
 
 	public Object saveUser(UserProfileReqeust userProfileReqeust) {
 		UserProfile profile = new UserProfile();
