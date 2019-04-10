@@ -1,11 +1,13 @@
 {
 	user(id:"c46d3e4a-f2dc-42dd-b122-d1490e804676"){
+		id
 		firstName
 		lastName
 		email
 	}
 	
 	allUsers{
+		id
 		firstName
 		lastName
 		email
