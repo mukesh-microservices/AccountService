@@ -1,15 +1,19 @@
-package com.demo.microservices.AccountService.service;
+package com.tais.AccountService.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.demo.microservices.AccountService.entity.UserProfile;
-import com.demo.microservices.AccountService.pojo.request.UserProfileReqeust;
-import com.demo.microservices.AccountService.repository.ProfileRepository;
+import com.tais.AccountService.dao.entity.UserProfile;
+import com.tais.AccountService.dao.repository.ProfileRepository;
+import com.tais.AccountService.dto.request.UserProfileReqeust;
+
+
+
+
 
 @Component
-public class ProfileSevice {
+public class ProfileSeviceImpl implements ProfileService {
 
 	@Autowired
 	ProfileRepository profileRepository;

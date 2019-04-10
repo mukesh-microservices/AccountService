@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.controller;
+package com.tais.AccountService.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.demo.microservices.AccountService.entity.UserProfile;
-import com.demo.microservices.AccountService.pojo.request.UserProfileReqeust;
-import com.demo.microservices.AccountService.service.ProfileSevice;
+import com.tais.AccountService.dao.entity.UserProfile;
+import com.tais.AccountService.dto.request.UserProfileReqeust;
+import com.tais.AccountService.service.ProfileService;
+
 
 @RestController
 public class ProfileController {
 
+
 	@Autowired
-	ProfileSevice profileSevice;
+	ProfileService profileService;
 
 	@GetMapping("/userProfile/{userId}")
 	public UserProfile getAccountDetails(@PathVariable String userId) {
 
-		UserProfile profile = profileSevice.getUser(userId);
+		UserProfile profile = profileService.getUser(userId);
 
 		System.out.println("profileprofileprofileprofile -- " + profile);
 		return profile;
@@ -32,7 +34,7 @@ public class ProfileController {
 	@GetMapping("/userProfile/allUsers")
 	public Iterable<UserProfile> getAllAccountDetails() {
 
-		Iterable<UserProfile> profiles = profileSevice.getAllUsers();
+		Iterable<UserProfile> profiles = profileService.getAllUsers();
 
 		System.out.println("profileprofileprofileprofile -- " + profiles);
 		return profiles;
@@ -44,7 +46,7 @@ public class ProfileController {
 			@RequestBody UserProfileReqeust userProfileReqeust) {
 
 		try {
-			profileSevice.saveUser(userProfileReqeust);
+			profileService.saveUser(userProfileReqeust);
 			System.out.println(userProfileReqeust);
 
 		} catch (Throwable t) {

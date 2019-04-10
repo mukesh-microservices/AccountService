@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.serviceProxy;
+package com.tais.AccountService.serviceProxy;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.config;
+package com.tais.AccountService.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.pojo.request;
+package com.tais.AccountService.dto.request;
 
 public class UserProfileReqeust {
 	String firstName;

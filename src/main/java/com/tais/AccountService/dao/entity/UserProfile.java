@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.entity;
+package com.tais.AccountService.dao.entity;
 
 import java.util.Date;
 

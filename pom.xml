@@ -9,7 +9,7 @@
 		<version>2.1.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.demo.microservices</groupId>
+	<groupId>com.tais</groupId>
 	<artifactId>AccountService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AccountService</name>

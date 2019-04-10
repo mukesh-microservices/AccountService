@@ -1,4 +1,4 @@
-package com.demo.microservices.AccountService.controller;
+package com.tais.AccountService.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.demo.microservices.AccountService.serviceProxy.LoyalyServiceProxyFeign;
+import com.tais.AccountService.serviceProxy.LoyalyServiceProxyFeign;
 
 @RestController
 public class AccountDetailsController {
