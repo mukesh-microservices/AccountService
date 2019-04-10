@@ -22,7 +22,7 @@ public class ProfileController {
 	@Autowired
 	ProfileService profileService;
 
-	@GetMapping("/userProfile/{userId}")
+	@GetMapping("/rest/userProfile/{userId}")
 	public UserProfile getAccountDetails(@PathVariable String userId) {
 
 		UserProfile profile = profileService.getUser(userId);
@@ -31,7 +31,7 @@ public class ProfileController {
 		return profile;
 	}
 	
-	@GetMapping("/userProfile/allUsers")
+	@GetMapping("/rest/userProfile/allUsers")
 	public Iterable<UserProfile> getAllAccountDetails() {
 
 		Iterable<UserProfile> profiles = profileService.getAllUsers();
@@ -41,7 +41,7 @@ public class ProfileController {
 	}
 	
 
-	@PostMapping("/userProfile/register")
+	@PostMapping("/rest/userProfile/register")
 	public boolean registerUser(HttpServletRequest httpRequest, HttpServletResponse httpResponse,
 			@RequestBody UserProfileReqeust userProfileReqeust) {
 
