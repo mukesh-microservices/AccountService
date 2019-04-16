@@ -10,20 +10,29 @@ import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 
 @Component
-public class UserDataFatcher implements DataFetcher<UserProfile>{
-	
-	
+public class UserDataFatcher implements DataFetcher<UserProfile> {
+
 	@Autowired
 	ProfileService profileService;
 
 	@Override
 	public UserProfile get(DataFetchingEnvironment environment) {
-		String id = environment.getArgument("id");
-		return profileService.getUser(id);
-	}
 
-	
-	
-	
+		UserProfile userProfile = null;
+		
+		System.out.println("Datafetcher Argument..... " + environment.getArguments());
+		
+		if (environment.containsArgument("id")) {
+			String id = environment.getArgument("id");
+			userProfile = profileService.getUser(id);
+		} else if (environment.containsArgument("email")) {
+			
+			String email = environment.getArgument("email");
+			userProfile = profileService.getUserByEmail(email);
+
+		}
+		return userProfile;
+
+	}
 
 }

@@ -1,4 +1,13 @@
 {
+	
+	allUsers{
+		userId:id
+		fName:firstName
+		lastName
+		email
+	}
+	
+	
 	user(id:"c46d3e4a-f2dc-42dd-b122-d1490e804676"){
 		id
 		firstName
@@ -6,10 +15,15 @@
 		email
 	}
 	
-	allUsers{
+	userByEmail(email:"mukesh.kuamr1@cvshealth.com"){
 		id
 		firstName
 		lastName
 		email
 	}
+	
+
+	
+	
+	
 }

@@ -7,4 +7,5 @@ public interface ProfileService {
 	public UserProfile getUser(String userId) ;
 	public Iterable<UserProfile> getAllUsers() ;
 	public Object saveUser(UserProfileReqeust userProfileReqeust);
+	public UserProfile getUserByEmail(String email);
 }

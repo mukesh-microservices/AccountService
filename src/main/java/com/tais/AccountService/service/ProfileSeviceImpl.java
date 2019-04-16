@@ -45,4 +45,11 @@ public class ProfileSeviceImpl implements ProfileService {
 
 	}
 
+
+
+	@Override
+	public UserProfile getUserByEmail(String email) {
+		return profileRepository.findByEmail(email).get();
+	}
+
 }

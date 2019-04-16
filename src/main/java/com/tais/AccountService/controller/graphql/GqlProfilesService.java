@@ -66,7 +66,8 @@ public class GqlProfilesService {
 	private RuntimeWiring buildRuntimeWiring() {
 
 		return RuntimeWiring.newRuntimeWiring()
-				.type("Query", typeWiring -> typeWiring.dataFetcher("allUsers", allUsersDataFatcher).dataFetcher("user", userDataFatcher)
+				.type("Query", 
+						typeWiring -> typeWiring.dataFetcher("allUsers", allUsersDataFatcher).dataFetcher("user", userDataFatcher).dataFetcher("userByEmail", userDataFatcher)
 
 				).build();
 	}
