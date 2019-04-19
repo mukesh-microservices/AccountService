@@ -1,21 +1,41 @@
 package com.tais.AccountService.dao.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.persistence.JoinColumn;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "USER_PROFILE")
 public class UserProfile {
+
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
+	public List<UserRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<UserRole> roles) {
+		this.roles = roles;
+	}
 
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -34,12 +54,18 @@ public class UserProfile {
 
 	@Column(name = "PASSWORD", nullable = true, length = 255)
 	private String password;
-	
+
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "REGISTRATION_DATE")
 	private Date registrationDate;
-	
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "USER_PROFILE_ROLE", joinColumns = {
+			@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID") })
+	private List<UserRole> roles;
+
 	public String getLastName() {
 		return lastName;
 	}
